@@ -1,3 +1,13 @@
+# Clone Repo
+
+    git clone https://github.com/nodesense/angular-mindtree-sep-2018
+
+    cd angular-mindtree-sep-2018
+
+    npm install
+
+    ng serve
+
 # ProductApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.4.
