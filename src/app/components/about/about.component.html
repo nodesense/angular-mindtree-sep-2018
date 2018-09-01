@@ -1,0 +1,20 @@
+<h2>About</h2>
+
+
+<button (click)="addMember('New Member')">
+  Add
+</button>
+
+<button (click)="empty()">
+  Empty
+</button>
+
+<button (click)="showMembers = !showMembers">
+  Toggle
+</button>
+
+<ul  *ngIf="showMembers == true">
+  <li *ngFor="let memberName of members"> 
+      {{memberName}}
+  </li>
+</ul>

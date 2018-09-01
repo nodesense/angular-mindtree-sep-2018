@@ -1,0 +1,15 @@
+.odd {
+    color: red
+}
+
+.even {
+    color: green
+}
+
+.highlight {
+    background: lightpink
+}
+
+.bigText {
+    font-size: 24px;
+}

@@ -1,0 +1,44 @@
+<h2>{{title}}</h2>
+
+<!--
+  Data Binding
+    {{expr}} - interpolation
+    [] - property binding
+  () - event binding
+-->
+
+<p> Counter ==> {{counter}} </p>
+
+<p> Counter + 10 ==> {{counter + 10}} </p>
+
+<p>{{ counter %  2 == 0?'Even' : 'Odd' }}</p>
+
+<input [value]="counter" />
+
+counter + 5
+<input [value]="counter + 5" />
+
+<button [disabled]="counter %  2 != 0">
+    {{ counter %  2 == 0?'Enabled' : 'Disabled' }}
+</button>
+
+<p [class]=" counter %  2 == 0?'even' : 'odd'   ">
+  Para text
+</p>
+
+<button (click)="increment()">
+  +1
+</button>
+
+<button (click)="counter = counter - 1">
+  -1
+</button>
+
+<div [ngClass]=" {highlight: isMouseOver, bigText: isMouseOver} "
+     (mouseenter)="isMouseOver = true"
+     (mouseleave)="isMouseOver = false"
+>
+  Mouse over me 
+  <br />
+  Shall be highlighted
+</div>
