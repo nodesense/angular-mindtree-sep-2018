@@ -18,6 +18,10 @@
 counter + 5
 <input [value]="counter + 5" />
 
+<p>Non sugar for [], prefixed with  bind- </p>
+<input bind-value="counter + 5" />
+
+
 <button [disabled]="counter %  2 != 0">
     {{ counter %  2 == 0?'Enabled' : 'Disabled' }}
 </button>
@@ -28,6 +32,12 @@ counter + 5
 
 <button (click)="increment()">
   +1
+</button>
+
+<p>Non sugar for event binding () prefix with on- </p>
+
+<button on-click="increment()">
+  +1 non sugar
 </button>
 
 <button (click)="counter = counter - 1">

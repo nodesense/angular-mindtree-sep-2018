@@ -1,7 +1,20 @@
+
 <h2>About</h2>
 
+<!-- ng 2.0 onwards
 
-<button (click)="addMember('New Member')">
+  # - template reference variable
+  # - HTML DOM object
+-->
+
+Name
+<input name="member" #nameElement />
+
+<button (click)="nameElement.focus()">
+  Focus
+</button>
+
+<button (click)="addMember(nameElement.value);nameElement.value=''; nameElement.focus(); ">
   Add
 </button>
 
@@ -13,8 +26,17 @@
   Toggle
 </button>
 
-<ul  *ngIf="showMembers == true">
+<!-- ng 4.0 onwards, ngIf else -->
+
+<ul  *ngIf="showMembers == true else memberNotShown">
   <li *ngFor="let memberName of members"> 
       {{memberName}}
   </li>
 </ul>
+
+
+
+<!-- place holder for html tag-->
+<ng-template #memberNotShown >
+  <p>Members is not shown</p>
+</ng-template>
