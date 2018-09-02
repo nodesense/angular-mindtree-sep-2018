@@ -1,3 +1,4 @@
+import { Address } from './shared/models/address';
 import {Component} from '@angular/core';
 
 // MVW - Model View Whatever (Component)
@@ -24,6 +25,9 @@ export class AppComponent {
 
     // Models
     appTitle = 'Angular App 7';
-    address = {state: 'KA', city: 'BLR'};
+    address: Address = {    state: 'KA',
+                            city: 'BLR ',
+                            pincode: 560001};
+    today: Date = new Date();
 
 }

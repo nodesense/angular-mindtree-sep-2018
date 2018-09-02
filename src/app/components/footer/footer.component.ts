@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Address } from './../../shared/models/address';
+import { Component, OnInit,
+         Input } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  // @Input is for property binding
+  // Parent App sends data
+  // Footer receives it
+
+  // properties of footer component
+
+  @Input()
+  company: string;
+
+  @Input()
+  address: Address;
+
+  @Input()
+  copyRightsDate: Date;
+
   constructor() { }
 
   ngOnInit() {
-  }
+   }
 
 }

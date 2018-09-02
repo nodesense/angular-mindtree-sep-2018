@@ -1,3 +1,4 @@
+import { CartModule } from './cart/cart.module';
 import {NgModule} from '@angular/core';
 import { AppComponent } from './app.component';
 
@@ -10,12 +11,16 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 
 import {FormsModule} from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule ({
     imports: [
         // reference to other modules
         BrowserModule,
-        FormsModule
+        FormsModule,
+
+        SharedModule,
+        CartModule
     ],
 
     declarations: [
@@ -25,7 +30,7 @@ import {FormsModule} from '@angular/forms';
         FooterComponent,
         HomeComponent,
         AboutComponent,
-        ContactComponent,
+        ContactComponent
         // Header, Footer, Home 
     ],
     bootstrap: [

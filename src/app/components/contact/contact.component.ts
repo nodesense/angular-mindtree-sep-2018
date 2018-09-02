@@ -1,3 +1,4 @@
+import { Address } from './../../shared/models/address';
 import { Component, OnInit } from '@angular/core';
 
 class CustomerQuery {
@@ -17,6 +18,10 @@ export class ContactComponent implements OnInit {
   // model
   contactDetails: CustomerQuery = new CustomerQuery();
 
+  // undefined
+  // define address, use app-address in contact component
+  address: Address = { city: 'Chennai', 
+                        state: 'TN' };
 
   constructor() { }
 

@@ -1,0 +1,38 @@
+<h2>Cart</h2>
+
+<button (click)="addItem()">
+  Add
+</button>
+
+<button (click)="empty()">
+  Empty
+</button>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Qty</th>
+    <th>Total</th>
+    <th>Delete</th>
+  </tr>
+
+  <tr *ngFor="let item of cartService.items">
+    <td>{{item.name}}</td>
+    <td>{{item.price}}</td>
+    <td>{{item.qty}}</td>
+    <td>{{item.qty * item.price}}</td>
+    <td> 
+       <button>
+         Delete
+       </button>
+    </td>
+  </tr>
+</table>
+
+<app-cart-summary [amount]="cartService.amount"
+                  [totalItems]="cartService.totalItems"
+
+>
+
+</app-cart-summary>
