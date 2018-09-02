@@ -2,6 +2,9 @@
   <hr />
   <p>Copyrights @{{copyRightsDate.getFullYear()}}, {{company}}</p>
 
+  <p>{{copyRightsDate | date:'fullDate' | uppercase}}</p>
+
+  <p>Custom: {{copyRightsDate | date:'dd/MM/yyyy HH:mm:ss ms' }} </p>
   <app-address [address]="address">
   </app-address>
 </div>

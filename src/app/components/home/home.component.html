@@ -7,6 +7,20 @@
   () - event binding
 -->
 
+<p> 3^2 ==> {{3 | power: 2}} </p>
+
+<p> 5^ ==> {{5 | power}} </p>
+
+<p>counter^2 ==> {{counter | power:2}}</p>
+
+<p> 3^counter ==> {{3 | power:counter}}</p>
+
+<p> Price {{price}}</p>
+
+<button (click)="price = price + 1">
+  +1 Price
+</button>
+
 <p> Counter ==> {{counter}} </p>
 
 <p> Counter + 10 ==> {{counter + 10}} </p>

@@ -9,6 +9,7 @@
 /node_modules
 
 /mindtree.private
+/emails.txt
 
 # IDEs and editors
 /.idea

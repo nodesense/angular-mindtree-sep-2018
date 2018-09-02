@@ -1,4 +1,4 @@
-<h2>Contact</h2>
+<h2 appHighlight [color]=" 'light' + 'blue' ">Contact</h2>
 
 <!-- elvis operator .? null/undefined check  -->
 <p>City {{address?.city}}</p>
@@ -19,6 +19,8 @@
         [ngModel]="contactDetails.name"
         
         (ngModelChange)="contactDetails.name = $event"
+        
+        appHighlight
 
         />
 
@@ -43,6 +45,12 @@
   <button type='submit'>Save</button>
   <button type='reset'>Reset</button>
 </form>
+
+
+<pre>
+{{contactDetails | json}}
+</pre>
+
 
 <app-address [address]="address">
 </app-address>

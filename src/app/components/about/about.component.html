@@ -29,7 +29,9 @@ Name
 <!-- ng 4.0 onwards, ngIf else -->
 
 <ul  *ngIf="showMembers == true else memberNotShown">
-  <li *ngFor="let memberName of members"> 
+  <li *ngFor="let memberName of members"
+      appHighlight 
+  > 
       {{memberName}}
   </li>
 </ul>
