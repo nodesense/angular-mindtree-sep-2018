@@ -69,7 +69,9 @@ export class CartService {
   }
 
   empty() {
-    this.items = [];
+    this.items = []; // assign new object 
+
+    
     this.calculate();
 
     this.items$.next(this.items);

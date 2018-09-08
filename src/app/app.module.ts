@@ -15,6 +15,7 @@ import { SharedModule } from './shared/shared.module';
 
 import {RouterModule, Routes} from '@angular/router';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ProductModule } from './product/product.module';
 
 // routing step 1: configuration:  map url path to component
 const routes: Routes = [
@@ -52,6 +53,7 @@ const routes: Routes = [
 
         SharedModule,
         CartModule, // this also brings routes from cart
+        ProductModule
     ],
 
     declarations: [

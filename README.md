@@ -39,7 +39,17 @@
     ng g class cart/models/cart-item
 
 
+# Product Module
 
+    ng g module product
+
+    ng g component product/components/product-home
+    ng g component product/components/product-edit
+    ng g component product/components/product-search
+    ng g component product/components/product-list
+    ng g class product/models/product
+    ng g class product/models/brand
+    ng g service product/services/product
 
 # ProductApp
 
