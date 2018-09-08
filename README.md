@@ -8,6 +8,14 @@
 
     ng serve
 
+# App Module
+    ng g component components/home
+    ng g component components/contact
+    ng g component components/about
+    ng g component components/header
+    ng g component components/footer
+    ng g component components/not-found
+
 # Shared module
     ng  g module shared
 
