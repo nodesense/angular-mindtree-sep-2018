@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { CartItem } from './../../models/cart-item';
 import { CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
@@ -8,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  amount$: Observable<number>;
+  totalItems$: Observable<number>;
+  items$: Observable<CartItem[]>;
 
   // BAD to call service from view
-  constructor(public cartService: CartService) { 
+  constructor(private cartService: CartService) { 
     console.log('CartComponent created');
+
+    this.amount$ = this.cartService.amount$;
+    this.totalItems$ = this.cartService.totalItems$;
+    this.items$ = this.cartService.items$;
   }
 
   ngOnInit() {

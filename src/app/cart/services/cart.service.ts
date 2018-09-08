@@ -1,7 +1,16 @@
+// cart.service.ts
 import { CartItem } from './../models/cart-item';
 import { Injectable } from '@angular/core';
 
-import {Subject} from 'rxjs';
+// Subject publish the values only when next(publish) is called
+import {Subject, Observable} from 'rxjs';
+
+// BehaviorSubject publish the values when next(publish) is called
+// BehaviorSubject also publish values when new subscriber added
+// no need to wait for next, publish last known value
+
+
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +22,9 @@ export class CartService {
   totalItems = 0;
   amount = 0;
 
-  amount$: Subject<number> = new Subject();
-  totalItems$: Subject<number> = new Subject();
+  amount$: BehaviorSubject<number> = new BehaviorSubject(0);
+  totalItems$: BehaviorSubject<number> = new BehaviorSubject(0);
+  items$: BehaviorSubject<CartItem[]> = new BehaviorSubject([]);
 
 
   constructor() { 
@@ -42,18 +52,26 @@ export class CartService {
   addItem(item: CartItem) {
     this.items.push(item);
     this.calculate();
+
+    this.items$.next(this.items);
   }
 
   removeItem(id: number) {
     this.calculate();
+
+    this.items$.next(this.items);
   }
 
   updateItem(id: number, qty: number) {
     this.calculate();
+
+    this.items$.next(this.items);
   }
 
   empty() {
     this.items = [];
     this.calculate();
+
+    this.items$.next(this.items);
   }
 }

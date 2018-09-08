@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private cartService: CartService) { 
 
-    this.amount = this.cartService.amount;
+    // this.amount = this.cartService.amount;
 
     this.totalItems$ = this.cartService.totalItems$;
 
@@ -26,6 +26,7 @@ export class HeaderComponent implements OnInit {
     // subscribe for amount$
     this.cartService.amount$
                     .subscribe( amount => {
+                      console.log('HEADER SUBSCRIBE');
                       this.amount = amount;
                     });
   }
