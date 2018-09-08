@@ -18,4 +18,12 @@ export class ProductService {
           .http
           .get<Product[]>('http://localhost:7070/api/products');
   }
+
+  // DELETE /api/products/100
+
+  deleteProduct(id: number): Observable<any> {
+    // ` back quote, template string in ES6
+    return this.http
+               .delete(`http://localhost:7070/api/products/${id}`)
+  }
 }

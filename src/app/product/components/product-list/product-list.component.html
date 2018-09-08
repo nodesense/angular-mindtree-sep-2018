@@ -1,5 +1,28 @@
 <h2>Product List</h2>
 
+<form>
+  Field Name
+  <select name="fieldName"
+          [(ngModel)]="fieldName">
+    <option value="price">Price</option>    
+    <option value="year">Year</option>  
+  </select>
+
+  Predicate
+  <select name="predicate"
+          [(ngModel)]="predicate">
+    <option value="gt">&gt;</option>    
+    <option value="lt">&lt;</option>  
+    <option value="eq"> == </option>  
+  </select>
+
+  expected
+  <input type="number" name="expected"
+        [(ngModel)]="expected" />
+</form>
+
+<p>Filter {{fieldName}} {{predicate}} {{expected}}</p>
+
 <table>
   <tr>
     <th>Name</th>
@@ -8,9 +31,12 @@
     <th>Operations</th>
   </tr>
 
-  <tr *ngFor="let product of products$ | async">
+  <tr *ngFor="let product of (products$ | async | filter:fieldName:predicate:expected)">
     <td>
+      <a [routerLink]="[ '/products', 'edit', product.id ]">
         {{product.name | uppercase}}
+      </a>
+      
       </td>
     <td>{{product.price | currency:'INR'}}</td>
     <td>{{product.year}}</td>
