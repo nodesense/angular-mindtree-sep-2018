@@ -17,6 +17,9 @@ import {RouterModule, Routes} from '@angular/router';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductModule } from './product/product.module';
 
+// ng 4.3 onwards
+import {HttpClientModule} from '@angular/common/http';
+
 // routing step 1: configuration:  map url path to component
 const routes: Routes = [
     {
@@ -45,7 +48,7 @@ const routes: Routes = [
         // reference to other modules
         BrowserModule,
         FormsModule,
-
+        HttpClientModule,
         // step 2: Apply routes to Angular
         // forRoot, call only once per application
         // create many router services/providers for the application
