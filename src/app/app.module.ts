@@ -46,10 +46,12 @@ const routes: Routes = [
         FormsModule,
 
         // step 2: Apply routes to Angular
+        // forRoot, call only once per application
+        // create many router services/providers for the application
         RouterModule.forRoot(routes),
 
         SharedModule,
-        CartModule
+        CartModule, // this also brings routes from cart
     ],
 
     declarations: [

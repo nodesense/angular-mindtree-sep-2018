@@ -1,6 +1,8 @@
 import { CartItem } from './../models/cart-item';
 import { Injectable } from '@angular/core';
 
+import {Subject} from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,6 +12,10 @@ export class CartService {
 
   totalItems = 0;
   amount = 0;
+
+  amount$: Subject<number> = new Subject();
+  totalItems$: Subject<number> = new Subject();
+
 
   constructor() { 
     console.log('CartService created');
@@ -26,6 +32,11 @@ export class CartService {
 
     this.amount = amount;
     this.totalItems = totalItems;
+    // publish amount
+    this.amount$.next(this.amount);
+
+    // publish totalItems
+    this.totalItems$.next(this.totalItems);
   }
 
   addItem(item: CartItem) {
