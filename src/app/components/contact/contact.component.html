@@ -1,4 +1,6 @@
-<h2 appHighlight [color]=" 'light' + 'blue' ">Contact</h2>
+<!-- directive name and input are same -->
+
+<h2 appHighlight="lightblue"  theme='white'>Contact</h2>
 
 <!-- elvis operator .? null/undefined check  -->
 <p>City {{address?.city}}</p>
@@ -20,7 +22,7 @@
         
         (ngModelChange)="contactDetails.name = $event"
         
-        appHighlight
+        appHighlight="yellow"
 
         />
 

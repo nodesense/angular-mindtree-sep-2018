@@ -17,8 +17,15 @@ import { Directive,
 })
 export class HighlightDirective implements OnInit, OnDestroy{
 
-  @Input()
+  // <h2  [appHighlight]="'light' +  'blue'" 
+ 
+  // appHighlight directive name and also input name
+
+  @Input('appHighlight') // alias name 
   color: string;
+
+  @Input()
+  theme: string; // demo
 
   constructor(private hostElement: ElementRef, 
               private renderer: Renderer2) { 
@@ -32,6 +39,8 @@ export class HighlightDirective implements OnInit, OnDestroy{
         this.hostElement.nativeElement.tagName);
 
     console.log('Directive onInit', this.color);
+
+    console.log('theme ', this.theme);
   }
 
   ngOnDestroy() {

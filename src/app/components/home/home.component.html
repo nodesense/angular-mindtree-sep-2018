@@ -66,3 +66,10 @@ counter + 5
   <br />
   Shall be highlighted
 </div>
+
+
+
+<app-address *ngIf="counter %  2 == 0" 
+              [address] = "{city: 'Pune', state: 'MH'}">
+
+</app-address>
