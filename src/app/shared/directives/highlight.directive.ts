@@ -50,6 +50,7 @@ export class HighlightDirective implements OnInit, OnDestroy{
   @HostListener('mouseenter')
   onEnter() {
    // console.log('mouse enter')
+ 
     this.renderer.setStyle(this.hostElement.nativeElement,
                            'background',
                            this.color);

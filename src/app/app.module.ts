@@ -13,11 +13,40 @@ import { ContactComponent } from './components/contact/contact.component';
 import {FormsModule} from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 
+import {RouterModule, Routes} from '@angular/router';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+
+// routing step 1: configuration:  map url path to component
+const routes: Routes = [
+    {
+        path: '', // default home page
+        component: HomeComponent
+    },
+
+    {
+        path: 'about',
+        component: AboutComponent
+    },
+    {
+        path: 'contact',
+        component: ContactComponent
+    },
+
+    // not found
+    {
+        path: '**',
+        component: NotFoundComponent
+    }
+];
+
 @NgModule ({
     imports: [
         // reference to other modules
         BrowserModule,
         FormsModule,
+
+        // step 2: Apply routes to Angular
+        RouterModule.forRoot(routes),
 
         SharedModule,
         CartModule
@@ -30,7 +59,8 @@ import { SharedModule } from './shared/shared.module';
         FooterComponent,
         HomeComponent,
         AboutComponent,
-        ContactComponent
+        ContactComponent,
+        NotFoundComponent
         // Header, Footer, Home 
     ],
     bootstrap: [
