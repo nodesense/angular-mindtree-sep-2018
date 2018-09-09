@@ -13,7 +13,10 @@ import { Directive,
 // div, p are called host element
 
 @Directive({
-  selector: '[appHighlight]' // attribute, [] must
+  selector: '[appHighlight]', // attribute, [] must
+  // this is useful to get directive instance
+  // <h2 appHightlight="green" #myDir="appHighlight"
+  exportAs: 'appHighlight',
 })
 export class HighlightDirective implements OnInit, OnDestroy{
 
@@ -41,6 +44,15 @@ export class HighlightDirective implements OnInit, OnDestroy{
     console.log('Directive onInit', this.color);
 
     console.log('theme ', this.theme);
+  }
+
+  getColor() {
+    return this.color;
+  }
+
+  setColor(color: string) {
+    console.log('setColor called');
+    this.color = color;
   }
 
   ngOnDestroy() {

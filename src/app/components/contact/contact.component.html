@@ -1,6 +1,24 @@
+<!-- contact.component.html -->
 <!-- directive name and input are same -->
 
-<h2 appHighlight="lightblue"  theme='white'>Contact</h2>
+<h2 appHighlight="lightblue"  
+    theme='white'
+    
+    #myH2
+    #myHighlight="appHighlight"
+
+    >Contact</h2>
+
+<!-- #myH2 is H2 DOM Element reference
+
+    #myHighlight='appHighlight' is instance of appHighlight directive
+-->
+
+<!-- todo: call directive getColor and setcolor -->
+<p> Color : {{myHighlight.getColor()}} </p>
+<button (click)="myHighlight.setColor('green')">
+  Set Color
+</button>
 
 <!-- elvis operator .? null/undefined check  -->
 <p>City {{address?.city}}</p>

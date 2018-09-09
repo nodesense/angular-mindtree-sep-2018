@@ -4,6 +4,7 @@ import { Product } from './../../models/product';
 import { Component, OnInit } from '@angular/core';
 
 import {ActivatedRoute,  // to read data from url /edit/:id
+        Router,
         } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Brand } from '../../models/brand';
@@ -18,7 +19,8 @@ export class ProductEditComponent implements OnInit {
   product: Product = new Product(); // for create page
   brands$: Observable<Brand[]>;
   
-  constructor(private route: ActivatedRoute, 
+  constructor(private route: ActivatedRoute,
+              private router: Router,
               private productService: ProductService) { }
 
   ngOnInit() {
@@ -39,7 +41,12 @@ export class ProductEditComponent implements OnInit {
     this.productService
         .saveProduct(this.product)
         .subscribe ( savedProduct => {
-          alert(JSON.stringify(savedProduct));
+          // alert(JSON.stringify(savedProduct));
+          // update local product with the one from server
+          this.product = savedProduct;
+
+          //  go to list page
+          this.router.navigateByUrl('/products/list');
         });
   }
 }
