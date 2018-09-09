@@ -6,6 +6,12 @@ import {HttpClient} from '@angular/common/http';
 import { Product } from '../models/product';
 import { Observable } from 'rxjs';
 
+// always from environment, NOT prod.ts etc
+import { environment } from '../../../environments/environment';
+
+console.log('Env', environment);
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +23,7 @@ export class ProductService {
     // http.get shall publish the data after receiving from server
     return this
           .http
-          .get<Product[]>('http://localhost:7070/api/products');
+          .get<Product[]>(`${environment.apiEndPoint}/api/products`);
   }
 
   // DELETE /api/products/100
@@ -25,7 +31,7 @@ export class ProductService {
   deleteProduct(id: number): Observable<any> {
     // ` back quote, template string in ES6
     return this.http
-               .delete(`http://localhost:7070/api/products/${id}`)
+               .delete(`${environment.apiEndPoint}/api/products/${id}`)
   }
 
   getBrands(): Observable<Brand[]> {
@@ -33,7 +39,7 @@ export class ProductService {
     // Caching 
     return this
           .http
-          .get<Brand[]>('http://localhost:7070/api/brands');
+          .get<Brand[]>(`${environment.apiEndPoint}/api/brands`);
   }
 
   // rxjs
@@ -41,7 +47,7 @@ export class ProductService {
     // http.get shall publish the data after receiving from server
     return this
           .http
-          .get<Product[]>(`http://localhost:7070/api/products/?q=${q}`);
+          .get<Product[]>(`${environment.apiEndPoint}/api/products/?q=${q}`);
   }
 
   // GET /api/product/id - get single product object
@@ -49,7 +55,7 @@ export class ProductService {
     // http.get shall publish the data after receiving from server
     return this
           .http
-          .get<Product>(`http://localhost:7070/api/products/${id}`);
+          .get<Product>(`${environment.apiEndPoint}/api/products/${id}`);
   }
 
   /*
@@ -64,11 +70,11 @@ export class ProductService {
   */
   saveProduct(product: Product):  Observable<Product> {
     if (product.id) { // this is update
-      return this.http.put<Product>(`http://localhost:7070/api/products/${product.id}`,
+      return this.http.put<Product>(`${environment.apiEndPoint}/api/products/${product.id}`,
              product // data
       );
     } else { // create
-      return this.http.post<Product>(`http://localhost:7070/api/products`,
+      return this.http.post<Product>(`${environment.apiEndPoint}/api/products`,
              product // data
       );
     }
