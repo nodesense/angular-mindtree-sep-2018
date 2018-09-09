@@ -1,6 +1,8 @@
-import { SharedModule } from './../shared/shared.module';
- 
+
 // product.module.ts
+
+import { SharedModule } from './../shared/shared.module';
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductHomeComponent } from './components/product-home/product-home.component';
@@ -8,13 +10,14 @@ import { ProductEditComponent } from './components/product-edit/product-edit.com
 import { ProductSearchComponent } from './components/product-search/product-search.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 
-
 // nested navigation
 import {Routes, RouterModule} from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
   {
-    path: 'products',
+    // path: 'products',
+    path: '', // for lazy loaded module
+
     component: ProductHomeComponent,
 
     children: [

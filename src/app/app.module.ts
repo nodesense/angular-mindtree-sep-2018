@@ -15,7 +15,7 @@ import { SharedModule } from './shared/shared.module';
 
 import {RouterModule, Routes} from '@angular/router';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { ProductModule } from './product/product.module';
+// import { ProductModule } from './product/product.module';
 
 // ng 4.3 onwards
 import {HttpClientModule} from '@angular/common/http';
@@ -36,7 +36,15 @@ const routes: Routes = [
         component: ContactComponent
     },
 
-    // not found
+    // lazy loading product module
+    {
+        path: 'products',
+         // path to lazy loaded module
+         // path#ClassName
+        loadChildren: './product/product.module#ProductModule'
+    },
+
+    // not found, always last one
     {
         path: '**',
         component: NotFoundComponent
@@ -56,7 +64,7 @@ const routes: Routes = [
 
         SharedModule,
         CartModule, // this also brings routes from cart
-        ProductModule
+//        ProductModule
     ],
 
     declarations: [
