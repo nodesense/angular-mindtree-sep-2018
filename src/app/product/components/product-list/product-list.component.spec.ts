@@ -1,3 +1,5 @@
+// product-list.component.spec.ts
+
 import { FormsModule } from '@angular/forms';
 import { CartModule } from './../../../cart/cart.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -38,13 +40,14 @@ fdescribe('ProductListComponent', () => {
         SharedModule,
         CartModule,
         FormsModule
+
       ],
       declarations: [ ProductListComponent ],
       providers: [
         {provide: APP_BASE_HREF, useValue: '/'},
         {
-          provide: ProductService,
-          useClass: ProductMockService
+          provide: ProductService, // not created
+          useClass: ProductMockService // created, injected
         }
       ]
     })

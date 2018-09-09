@@ -19,6 +19,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
+  
   getProducts(): Observable<Product[]> {
     // http.get shall publish the data after receiving from server
     return this

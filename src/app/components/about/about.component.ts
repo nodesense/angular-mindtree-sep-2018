@@ -22,6 +22,7 @@ export class AboutComponent implements OnInit {
     console.log('About comp created');
   }
 
+  
   ngOnInit() {
   }
 

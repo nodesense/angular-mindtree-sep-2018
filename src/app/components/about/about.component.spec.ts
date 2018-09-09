@@ -1,7 +1,9 @@
-import { SharedModule } from './../../shared/shared.module';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, 
+        ComponentFixture, 
+        TestBed } from '@angular/core/testing';
 
 import { AboutComponent } from './about.component';
+import { SharedModule } from './../../shared/shared.module';
 
 fdescribe('AboutComponent', () => {
   let component: AboutComponent;
@@ -36,7 +38,7 @@ fdescribe('AboutComponent', () => {
     element = fixture.nativeElement;
     expect(element.querySelectorAll('li').length).toBe(2);
     
-    component.showMembers = false;
+    component.showMembers = false; // list should disappear
 
     fixture.detectChanges();
     expect(element.querySelectorAll('li').length).toBe(0);
@@ -63,5 +65,6 @@ fdescribe('AboutComponent', () => {
     fixture.detectChanges();
 
     expect(element.querySelectorAll('li').length).toBe(0);
+    expect(element.querySelectorAll('ul').length).toBe(1);
    });
 });
