@@ -16,6 +16,8 @@ export class AboutComponent implements OnInit {
   members: string[] = ['Venkat', 'Karthik'];
   showMembers = true;
 
+  aboutLikes = 500;
+
   constructor(public dataService: DataService) { 
     console.log('About comp created');
   }

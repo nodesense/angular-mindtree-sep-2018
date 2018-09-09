@@ -13,10 +13,25 @@
 
 
     <!-- html DOM parent is div, -->
+
+    <!-- contactEvent is a custom event defined in footer comp
+        (contactEvent)="contactEventHandler($event)"
+
+        Parent subscribe for the contactEvent
+        when emit data, it calls parent contactEventHandler func
+        $event, the parameter passed in .emit method
+        $event is a keyword
+    -->
     <div>
      <app-footer [company]="appTitle"
                  [copyRightsDate]="today"
-                 [address]="address" ></app-footer>
+                 [address]="address" 
+                 
+                 (contactEvent)="contactEventHandler($event)"
+                 
+                 
+                 ></app-footer>
     </div>
 
+ 
 </div>

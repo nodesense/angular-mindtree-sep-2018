@@ -47,3 +47,8 @@ Name
 <ng-template #memberNotShown >
   <p>Members is not shown</p>
 </ng-template>
+
+
+<p>About Likes {{aboutLikes}}</p>
+<app-like [(likes)]="aboutLikes">
+</app-like>

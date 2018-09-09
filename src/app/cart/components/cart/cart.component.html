@@ -30,11 +30,14 @@
   </tr>
 </table>
 
+<!-- subscribe for emptyCart event, 
+  then cartService.empty in the ts code
+-->
 <app-cart-summary [amount]="amount$ | async"
                   [totalItems]="totalItems$ | async"
+
+                  (emptyCartEvent)="empty()"
 
 >
 
 </app-cart-summary>
-
-<p> Cart {{5 | power:2}} </p>

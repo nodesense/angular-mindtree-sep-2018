@@ -1,6 +1,12 @@
+// footer.component.ts
 import { Address } from './../../shared/models/address';
 import { Component, OnInit,
-         Input } from '@angular/core';
+         Input,
+        
+         Output,
+         EventEmitter
+
+        } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -15,6 +21,17 @@ export class FooterComponent implements OnInit {
 
   // properties of footer component
 
+  // Child to parent communication
+  // Event Binding (custom event)
+  // RxJS Publish and Subscribe
+  // Event Emitter is a subject
+
+  // Output creates custom event named (contactEvent)
+  @Output()
+  contactEvent: EventEmitter<Address> = new EventEmitter();
+
+
+
   @Input()
   company: string;
 
@@ -27,6 +44,12 @@ export class FooterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+   }
+
+   contactClicked() {
+     // emitting event, that send this.address value
+     // publishing value
+     this.contactEvent.emit(this.address);
    }
 
 }

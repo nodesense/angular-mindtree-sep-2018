@@ -1,6 +1,9 @@
+// cart-summary.component.ts
 import { Component, 
           OnInit,
-          Input
+          Input,
+          Output,
+          EventEmitter
         } from '@angular/core';
 
 @Component({
@@ -16,9 +19,19 @@ export class CartSummaryComponent implements OnInit {
   @Input()
   totalItems: number;
 
+  //TODO:  define emptyCart event
+
+  @Output()
+  emptyCartEvent: EventEmitter<void> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  empty() {
+    // publish event
+    this.emptyCartEvent.emit();
   }
 
 }

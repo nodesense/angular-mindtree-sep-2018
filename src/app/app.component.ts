@@ -1,3 +1,5 @@
+// app.component.ts
+
 import { Address } from './shared/models/address';
 import {Component} from '@angular/core';
 
@@ -29,5 +31,11 @@ export class AppComponent {
                             city: 'BLR ',
                             pincode: 560001};
     today: Date = new Date();
+
+    // this function to be called when child emit 
+    // (contactEvent)
+    contactEventHandler(addr: Address) {
+        alert(JSON.stringify(addr));
+    }
 
 }

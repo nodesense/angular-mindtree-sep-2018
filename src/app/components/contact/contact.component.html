@@ -56,3 +56,11 @@
 
 <app-address [address]="address">
 </app-address>
+
+<p>Contact Likes {{contactLikes}}</p>
+
+<app-like  [likes]="contactLikes"
+           (likesChange)="contactLikes = $event"
+>
+
+</app-like>

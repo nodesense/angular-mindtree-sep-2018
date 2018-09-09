@@ -23,6 +23,8 @@ export class ContactComponent implements OnInit {
   address: Address = { city: 'Chennai', 
                         state: 'TN' };
 
+  contactLikes = 1000;
+
   constructor() { }
 
   ngOnInit() {
