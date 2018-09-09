@@ -1,3 +1,4 @@
+import { AuthGuard } from './shared/guards/auth.guard';
 import { CartModule } from './cart/cart.module';
 import {NgModule} from '@angular/core';
 import { AppComponent } from './app.component';
@@ -47,7 +48,9 @@ const routes: Routes = [
         path: 'products',
          // path to lazy loaded module
          // path#ClassName
-        loadChildren: './product/product.module#ProductModule'
+        loadChildren: './product/product.module#ProductModule',
+
+        canActivate: [AuthGuard]
     },
 
     // not found, always last one

@@ -38,10 +38,17 @@
   </a>
 
 
-  <a routerLink="/auth/login"  class="button" 
+  <a *ngIf="!(authenticated$ | async)" routerLink="/auth/login"  class="button" 
             routerLinkActive="success">
     Login
   </a>
+
+  <button *ngIf="(authenticated$ | async)"
+           (click)="logout()">
+    Logout
+  </button>
+
+  
 
   <span>Amount {{amount | currency:'INR'}} 
         [{{totalItems$ | async}}]</span>
