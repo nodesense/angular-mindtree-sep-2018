@@ -1,3 +1,4 @@
+import { AuthGuard } from './../shared/guards/auth.guard';
 
 // product.module.ts
 
@@ -27,7 +28,8 @@ const routes: Routes = [
       },
       {
         path: 'create',
-        component: ProductEditComponent
+        component: ProductEditComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'search',
@@ -35,7 +37,8 @@ const routes: Routes = [
       },
       {
         path: 'edit/:id',
-        component: ProductEditComponent
+        component: ProductEditComponent,
+        canActivate: [AuthGuard]
       },
     ]
   }

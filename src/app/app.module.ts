@@ -19,6 +19,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 
 // ng 4.3 onwards
 import {HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
 
 // routing step 1: configuration:  map url path to component
 const routes: Routes = [
@@ -34,6 +35,11 @@ const routes: Routes = [
     {
         path: 'contact',
         component: ContactComponent
+    },
+
+    {
+        path: 'auth/login',
+        component: LoginComponent
     },
 
     // lazy loading product module
@@ -75,7 +81,8 @@ const routes: Routes = [
         HomeComponent,
         AboutComponent,
         ContactComponent,
-        NotFoundComponent
+        NotFoundComponent,
+        LoginComponent
         // Header, Footer, Home 
     ],
     bootstrap: [
